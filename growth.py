@@ -81,9 +81,8 @@ if uploaded_files:
                 df.to_csv(buffer, index=False)
                 mime_type = "text/csv"
             elif conversion_type == "Excel":
-                df.to_excel(buffer, index=False)
-                mime_type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-            
+                df.to_excel(buffer,engine="openpyxl", index=False)
+                
             buffer.seek(0)
 
             st.download_button(
