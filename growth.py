@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import os
 from io import BytesIO
-
+import openpyxl
 
 
 st.set_page_config(page_title="Data Sweeper", layout="wide")
@@ -81,7 +81,7 @@ if uploaded_files:
                 df.to_csv(buffer, index=False)
                 mime_type = "text/csv"
             elif conversion_type == "Excel":
-                df.to_excel(buffer, index=False)
+                df.to_excel(buffer,engine="openpyxl", index=False)
                 file_name= file.name.replace(file_ext, ".xlsx")
                 mime_type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
             buffer.seek(0)
