@@ -81,7 +81,7 @@ if uploaded_files:
                 df.to_csv(buffer, index=False)
                 mime_type = "text/csv"
             elif conversion_type == "Excel":
-                df.to_excel(buffer,engine="openpyxl", index=False)
+                df.to_excel(buffer, index=False)
                 
             buffer.seek(0)
 
